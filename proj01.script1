@@ -1,0 +1,14 @@
+#! /bin/tcsh -f
+
+#Chang Ge
+#Computer Project #1
+#Script1
+
+#This is used for showing the titles
+cat /user/cse410/Projects/project01.headers
+#This is used for showing the data for the giving county
+grep "| $argv[1]" /user/cse410/Projects/project01.data |sort  -t'|' -k3n -k1,1
+
+
+
+

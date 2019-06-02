@@ -1,0 +1,31 @@
+#! /bin/tcsh -f
+
+#Chang Ge
+#Computer Project #1
+#Script3
+
+#check if number of argumenets is 2, if not, show error message
+if ($#argv < 2 || $#argv >2 )then
+  echo "You did not enter 2 arguments"
+else
+#shou titles
+  cat /user/cse410/Projects/project01.headers
+
+  switch ($argv[2])
+#show data that includes all unit
+    case "A":
+      sort -t'|' -k3,3nr -k1,1 /user/cse410/Projects/project01.data | head -n"$argv[1]"
+      breaksw
+#show data that includes only city
+    case "C":
+      grep "city" /user/cse410/Projects/project01.data | sort -t'|' -k3,3nr -k1,1 | head -n"$argv[1]"
+
+      breaksw
+#show data that includes only township
+    case "T":
+      grep "township" /user/cse410/Projects/project01.data | sort -t'|' -k3,3nr -k1,1 | head -n"$argv[1]"
+
+      breaksw
+
+  endsw
+endif

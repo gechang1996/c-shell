@@ -1,0 +1,16 @@
+#! /bin/tcsh -f
+
+#Chang Ge
+#Computer Project #1
+#Script 2
+
+#run this number of county times
+foreach myCounty ($argv[*]:q)
+#This is used for showing the titles
+cat /user/cse410/Projects/project01.headers
+#This is used for showing the data for the giving county
+grep "| $myCounty" /user/cse410/Projects/project01.data | sort -t'|' -k3n -k1,1
+
+#each individual report should be separated by 2 blank lines
+echo "\n"
+end
